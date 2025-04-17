@@ -20,6 +20,13 @@ namespace ConexaoBD
             c = new Conexao();
         }
 
+        public void Insert()
+        {
+            string query = $"INSERT INTO produtos (nome,preco) VALUES ( '{nome}', {preco.ToString().Replace(",",".")} );";
+            c.ExecutaComando(query);
+            Console.WriteLine("Produto inserido com sucessu!");
+        }
+
         public List<Produto> BuscaTodos()
         {
            DataTable dt = c.ExecutaSelect("SELECT * FROM produtos;");

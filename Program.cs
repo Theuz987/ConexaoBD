@@ -7,15 +7,18 @@ namespace ConexaoBD // nome do projeto
     {
         static void Main(string[] args)
         {
-        
+            Produto p2 = new Produto();
+            p2.nome = "Mochila Camu(in)flada";
+            p2.preco = 109.90f;
+            p2.Insert();
+
             Produto p = new Produto();
             List<Produto> listamesmo = p.BuscaTodos();
 
             foreach (Produto produto in listamesmo)
             {
-                Console.WriteLine("ID: "+produto.id+" | Nome: "+produto.nome);
+                Console.WriteLine("ID: "+produto.id+" | Nome: "+produto.nome+" | Preço: "+produto.preco);
             }
-
 
             // Console.WriteLine("Hello World!");
             // Console.WriteLine("Põe o nome aê: ");

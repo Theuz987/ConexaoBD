@@ -10,13 +10,24 @@ namespace ConexaoBD {
     {
         string dadosConexao="server=localhost;user=root;database=teste_ti42;port=3306;password=";
 
-        public DataTable ExecutaSelect( string query )
+        public int ExecutaComando( string query )
         {
             // Cria e abre conexão com o banco
             MySqlConnection c = new MySqlConnection(dadosConexao);
             c.Open();
 
             // Rodar a query dentro do banco
+            MySqlCommand comando = new MySqlCommand(query, c);
+            int LinhasAfetadas = comando.ExecuteNonQuery();
+            c.Close();
+            return LinhasAfetadas;
+        }
+
+        public DataTable ExecutaSelect( string query )
+        {
+            MySqlConnection c = new MySqlConnection(dadosConexao);
+            c.Open();
+
             MySqlCommand comando = new MySqlCommand(query, c);
             MySqlDataAdapter dados = new MySqlDataAdapter(comando);
             DataTable dt = new DataTable();

@@ -4,7 +4,8 @@ using System.Data;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 
-namespace ConexaoBD {
+namespace MauiApp1
+{
 
     class Conexao
     {
@@ -64,7 +65,6 @@ namespace ConexaoBD {
         //    c.Close();
 
         //    return listamesmo;
-        
 
     }
 }
